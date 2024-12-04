@@ -135,11 +135,20 @@ public final class Config {
 					() -> enable_entity_renderer_caching = false
 			);
 		}
+
 		if(enable_sky_color_caching) {
 			disableIf(
 					"enable_sky_color_caching",
 					Collections.singletonList("polytone"),
 					() -> enable_sky_color_caching = false
+			);
+		}
+
+		if(enable_lightmap_caching) {
+			disableIf(
+					"enable_lightmap_caching",
+					Collections.singletonList("polytone"),
+					() -> enable_lightmap_caching = false
 			);
 		}
 	}
