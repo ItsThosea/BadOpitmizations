@@ -1,6 +1,7 @@
 package me.thosea.badoptimizations.mixin;
 
 import me.thosea.badoptimizations.other.Config;
+import me.thosea.badoptimizations.other.PlatformMethods;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -11,6 +12,12 @@ import java.util.Set;
 public class BOMixinPlugin implements IMixinConfigPlugin {
 	@Override
 	public void onLoad(String mixinPackage) {
+		if(PlatformMethods.isOnServer()) {
+			// error printed on forge startup
+			// mixins are marked client-only so we're done here
+			return;
+		}
+
 		Config.load();
 	}
 

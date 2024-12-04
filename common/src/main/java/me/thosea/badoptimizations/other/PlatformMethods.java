@@ -22,4 +22,7 @@ public final class PlatformMethods {
 	public static boolean isModLoaded(String id) {
 		return true;
 	}
+
+	@ExpectPlatform
+	public static boolean isOnServer() {return true;}
 }
