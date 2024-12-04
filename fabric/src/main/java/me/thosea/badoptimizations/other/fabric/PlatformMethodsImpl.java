@@ -20,4 +20,8 @@ public final class PlatformMethodsImpl {
 	public static boolean isModLoaded(String id) {
 		return FabricLoader.getInstance().isModLoaded(id);
 	}
+
+	public static boolean isOnServer() {
+		return false; // fabric won't let client-marked mods run on servers
+	}
 }
