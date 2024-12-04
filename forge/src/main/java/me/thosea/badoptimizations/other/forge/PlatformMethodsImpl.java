@@ -1,6 +1,7 @@
 package me.thosea.badoptimizations.other.forge;
 
 import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLEnvironment;
 import net.minecraftforge.fml.loading.FMLPaths;
 import net.minecraftforge.fml.loading.LoadingModList;
 
@@ -21,5 +22,9 @@ public final class PlatformMethodsImpl {
 
 	public static boolean isModLoaded(String id) {
 		return LoadingModList.get().getModFileById(id) != null;
+	}
+
+	public static boolean isOnServer() {
+		return FMLEnvironment.dist.isDedicatedServer();
 	}
 }
